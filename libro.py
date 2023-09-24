@@ -5,5 +5,4 @@ class Libro():
         self.autor: type[str]
         self.biblioteca: type[str]
         self.prestado= False
-        if self.prestado:
-            self.poseedor: type[Usuario]
+        self.poseedor=Usuario()

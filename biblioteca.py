@@ -20,5 +20,6 @@ class Biblioteca():
                 libro.poseedor.carrera=contenido[4]
                 libro.poseedor.nombre=contenido[5]
             self.libros.append(libro)
+        archivo.close()
 
 
