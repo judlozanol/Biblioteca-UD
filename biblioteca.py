@@ -12,10 +12,13 @@ class Biblioteca():
             contenido= (linea.rstrip("\n")).split("/")
             libro.nombre=contenido[0]
             libro.autor=contenido[1]
+            libro.biblioteca=self.nombre
             if len(contenido)>2:
                 libro.prestado=True
+                libro.poseedor.cargo=contenido[2]
+                libro.poseedor.sede=contenido[3]
+                libro.poseedor.carrera=contenido[4]
+                libro.poseedor.nombre=contenido[5]
             self.libros.append(libro)
-    def consultar_libros(self):
-        print("libros en "+self.nombre)
-        for i in range(len(self.libros)):
-            print(self.libros[i].nombre+"/"+self.libros[i].autor)
+
+
