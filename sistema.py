@@ -71,6 +71,8 @@ class Sistema():
                             linea=linea.rstrip("\n")
                             contenido= linea.split("/")
                             if contenido[0]==libro.nombre and len(contenido)==2:
-                                linea=linea+"/"+self.usuario.nombre+"/"+self.usuario.cargo+"/"+self.usuario.sede+"/"+self.usuario.carrera
+                                linea=linea+"/"+self.usuario.nombre+"/"+self.usuario.cargo+"/"+self.usuario.sede+"/"+self.usuario.carrera+"/"+str(self.usuario.documento)
                             archivo.write(linea+"\n")
                         archivo.close()
+        print("Prestamo Exitoso!")
+        

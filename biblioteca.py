@@ -15,10 +15,11 @@ class Biblioteca():
             libro.biblioteca=self.nombre
             if len(contenido)>2:
                 libro.prestado=True
-                libro.poseedor.cargo=contenido[2]
-                libro.poseedor.sede=contenido[3]
-                libro.poseedor.carrera=contenido[4]
-                libro.poseedor.nombre=contenido[5]
+                libro.poseedor.cargo=contenido[3]
+                libro.poseedor.sede=contenido[4]
+                libro.poseedor.carrera=contenido[5]
+                libro.poseedor.nombre=contenido[2]
+                libro.poseedor.documento=contenido[6]
             self.libros.append(libro)
         archivo.close()
 

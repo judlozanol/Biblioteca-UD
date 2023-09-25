@@ -8,6 +8,7 @@ class Admon(Usuario):
     def llenar_usuario(self):
         self.sede=str(input("Ingrese la sede del usuario:\n"))
         self.nombre=str(input("Ingrese el nombre del usuario:\n"))
+        self.documento=int(input("Ingrese un numero de identificación del usuario:\n"))
 
 class Docente(Usuario):
     def __init__(self):
@@ -17,6 +18,8 @@ class Docente(Usuario):
         self.sede=str(input("Ingrese la sede del usuario:\n"))
         self.carrera=str(input("Ingrese la carrera a la que pertenece el usuario:\n"))
         self.nombre=str(input("Ingrese el nombre del usuario:\n"))
+        self.documento=int(input("Ingrese un numero de identificación del usuario:\n"))
+
 class Estudiante(Usuario):
     def __init__(self):
         self.cargo="Estudiante"
@@ -25,3 +28,4 @@ class Estudiante(Usuario):
         self.sede=str(input("Ingrese la sede del usuario:\n"))
         self.carrera=str(input("Ingrese la carrera a la que pertenece el usuario:\n"))
         self.nombre=str(input("Ingrese el nombre del usuario:\n"))
+        self.documento=int(input("Ingrese un numero de identificación del usuario:\n"))
