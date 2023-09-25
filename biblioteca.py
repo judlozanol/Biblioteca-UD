@@ -19,7 +19,7 @@ class Biblioteca():
                 libro.poseedor.sede=contenido[4]
                 libro.poseedor.carrera=contenido[5]
                 libro.poseedor.nombre=contenido[2]
-                libro.poseedor.documento=contenido[6]
+                libro.poseedor.documento=int(contenido[6])
             self.libros.append(libro)
         archivo.close()
 
