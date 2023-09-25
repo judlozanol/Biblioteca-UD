@@ -1,6 +1,7 @@
 #Sera quien maneje los procesos dentro de todo
 from bibliotecas import *
 from usuarios import *
+from libro import Libro
 class Sistema():
     def __init__(self):
         self.bibliotecas=[Ingenieria(),Paiba(),Artes()]
@@ -57,7 +58,19 @@ class Sistema():
                 indice=int(input("Ingrese el número del libro que desea:"))
                 libro=libro_pedido[indice-1]
             return libro
-
-
-
-        
+    def prestar_libro(self, libro:type[Libro]):
+        for i in range(len(self.bibliotecas)):
+            if self.bibliotecas[i].nombre==libro.biblioteca:
+                for j in range(len(self.bibliotecas[i].libros)):
+                    if self.bibliotecas[i].libros[j].nombre==libro.nombre:
+                        archivo=open(self.bibliotecas[i].txt)
+                        texto=archivo.readlines()
+                        archivo.close()
+                        archivo=open(self.bibliotecas[i].txt,"w")
+                        for linea in texto:
+                            linea=linea.rstrip("\n")
+                            contenido= linea.split("/")
+                            if contenido[0]==libro.nombre and len(contenido)==2:
+                                linea=linea+"/"+self.usuario.nombre+"/"+self.usuario.cargo+"/"+self.usuario.sede+"/"+self.usuario.carrera
+                            archivo.write(linea+"\n")
+                        archivo.close()
