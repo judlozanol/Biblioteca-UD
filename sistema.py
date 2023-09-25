@@ -84,10 +84,21 @@ class Sistema():
                     if libro.poseedor.documento==self.usuario.documento:
                         libros_prestados.append(libro)
         return libros_prestados
+    
+    def consultar_libros_prestados(self):
+        libros_prestados=self.libros_prestados()
+        if len(libros_prestados)==0:
+            print("Ningún libro que devolver ;)")
+        else: 
+            print("Libros prestados a "+self.usuario.nombre)
+            for i in range(len(libros_prestados)):
+                print("("+str(i+1)+")")
+                print("\tNombre: "+libros_prestados[i].nombre+"\n\tAutor: "+libros_prestados[i].autor+"\n\tBiblioteca: "+libros_prestados[i].biblioteca)
+            
     def escoger_libro_prestado(self):
         libros_prestados=self.libros_prestados()
         if len(libros_prestados)==0:
-            print("Ningun libro que devolver ;)")
+            print("Ningún libro que devolver ;)")
             return False
         else: 
             for i in range(len(libros_prestados)):
