@@ -10,14 +10,16 @@ class Libro{
     autor
     biblioteca
     prestado : bool
-    historicoUsuarios
+    poseedor
     asignar_biblioteca()
     asignar_nombre()
     asignar_autor()
+    agregar_poseedor()
     entregar_biblioteca()
     entregar_nombre()
     entregar_autor()
     entregar_estado()
+    entregar_poseedor()
     cambiar_estado()
 }
 
@@ -47,6 +49,10 @@ class Usuario{
     entregar_carrera()
     entregar_nombre()
     entregar_documento()
+    leer_sede()
+    leer_carrera()
+    leer_nombre()
+    leer_documento()
     llenar_usuario()
 }
 

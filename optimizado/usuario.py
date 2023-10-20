@@ -5,20 +5,15 @@ class Usuario:
         self.carrera = ""
         self.nombre= ""
         self.documento = -1
-    def asignar_sede(self):
-        self.sede=str(input("Ingrese la sede del usuario:\n"))
-    def asignar_carrera(self):
-        self.carrera=str(input("Ingrese la carrera a la que pertenece el usuario:\n"))
-    def asignar_nombre(self):
-        self.nombre=str(input("Ingrese el nombre del usuario:\n"))
-    def asignar_documento(self):
-        while self.documento==-1:
-            try:
-                documento=int(input("Ingrese un numero de identificación del usuario:\n"))
-                if documento>0:
-                    self.documento=documento
-            except ValueError:
-                pass
+        
+    def asignar_sede(self, sede):
+        self.sede=sede
+    def asignar_carrera(self,carrera):
+        self.carrera=carrera
+    def asignar_nombre(self,nombre):
+        self.nombre=nombre
+    def asignar_documento(self,documento):
+        self.documento=documento
 
     def entregar_sede(self):
         return self.sede
@@ -30,6 +25,24 @@ class Usuario:
         return self.nombre
     def entregar_documento(self):
         return self.documento
+    
+    def leer_sede(self):
+        sede=str(input("Ingrese la sede del usuario:\n"))
+        self.asignar_sede(sede)
+    def leer_carrera(self):
+        carrera=str(input("Ingrese la carrera a la que pertenece el usuario:\n"))
+        self.asignar_carrera(carrera)
+    def leer_nombre(self):
+        nombre=str(input("Ingrese el nombre del usuario:\n"))
+        self.asignar_nombre(nombre)
+    def leer_documento(self):
+        while self.documento==-1:
+            try:
+                documento=int(input("Ingrese un numero de identificación del usuario:\n"))
+                if documento>0:
+                    self.asignar_documento(documento)
+            except ValueError:
+                pass
     
     def llenar_usuario(self):
         pass
