@@ -1,0 +1,66 @@
+@startuml
+left to right direction
+Biblioteca "1" *-- "n" Libro : contiene
+Biblioteca <|-- Paiba
+Biblioteca <|-- Artes
+Biblioteca <|-- Ingenieria
+class Libro{
+    nombre
+    autor
+    biblioteca
+    prestado : bool
+    asignar_biblioteca()
+    asignar_nombre()
+    asignar_autor()
+    entregar_biblioteca()
+    entregar_nombre()
+    entregar_autor()
+    entregar_estado()
+    cambiar_estado()
+}
+
+class Biblioteca{
+    nombre
+    libros
+    txt
+    leer_libros()
+}
+
+Usuario <|-- Admon
+Usuario <|-- Estudiante
+Usuario <|-- Docente
+class Usuario{
+    cargo
+    sede
+    carrera
+    nombre
+    documento
+    asignar_sede()
+    asignar_carrera()
+    asignar_nombre()
+    asignar_documento()
+    entregar_cargo()
+    entregar_sede()
+    entregar_carrera()
+    entregar_nombre()
+    entregar_documento()
+    llenar_usuario()
+}
+
+SistemaBibliotecas "1" *-- "1" BuscadorLibros:contiene
+SistemaBibliotecas "1" *-- "1" Usuario:contiene
+SistemaBibliotecas "1" *-- "n" Biblioteca:contiene
+class BuscadorLibros{
+    librosEncontrados
+    por_autor(Biblioteca)
+    por_libro(Biblioteca)
+    por_biblioteca(Biblioteca)
+    limpiar_librosEncontrados()
+    entregar_librosEncontrados()
+    mostrar_librosEncontrados()
+}
+
+class SistemaBibliotecas{
+
+}
+@enduml
