@@ -4,11 +4,13 @@ Biblioteca "1" *-- "n" Libro : contiene
 Biblioteca <|-- Paiba
 Biblioteca <|-- Artes
 Biblioteca <|-- Ingenieria
+Libro -- Usuario
 class Libro{
     nombre
     autor
     biblioteca
     prestado : bool
+    historicoUsuarios
     asignar_biblioteca()
     asignar_nombre()
     asignar_autor()
@@ -23,10 +25,11 @@ class Biblioteca{
     nombre
     libros
     txt
+    buscador
     leer_libros()
 }
 
-Usuario <|-- Admon
+Usuario <|-- Admin
 Usuario <|-- Estudiante
 Usuario <|-- Docente
 class Usuario{
@@ -47,20 +50,20 @@ class Usuario{
     llenar_usuario()
 }
 
-SistemaBibliotecas "1" *-- "1" BuscadorLibros:contiene
+Biblioteca "1" *-- "1" BuscadorLibros:contiene
 SistemaBibliotecas "1" *-- "1" Usuario:contiene
 SistemaBibliotecas "1" *-- "n" Biblioteca:contiene
 class BuscadorLibros{
     librosEncontrados
-    por_autor(Biblioteca)
-    por_libro(Biblioteca)
+    por_autor(Biblioteca, autor)
+    por_libro(Biblioteca, nombre)
     por_biblioteca(Biblioteca)
     limpiar_librosEncontrados()
     entregar_librosEncontrados()
-    mostrar_librosEncontrados()
 }
 
 class SistemaBibliotecas{
-
+    iniciar_sesion()
+    
 }
 @enduml
