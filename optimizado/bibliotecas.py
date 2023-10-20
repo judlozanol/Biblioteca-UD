@@ -17,9 +17,3 @@ class Artes(Biblioteca):
         self.nombre="Biblioteca Facultad de Artes Asab"
         self.txt="optimizado/archivosTexto/artes.txt"
         super().__init__()
-
-if __name__=="__main__":
-    p=Paiba()
-    print("#######"+p.nombre)
-    for libro in p.libros:
-        print(libro.nombre)
