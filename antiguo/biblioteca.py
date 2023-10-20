@@ -22,5 +22,3 @@ class Biblioteca():
                 libro.poseedor.documento=int(contenido[6])
             self.libros.append(libro)
         archivo.close()
-
-

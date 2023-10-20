@@ -29,6 +29,7 @@ class Biblioteca{
     txt
     buscador
     leer_libros()
+    actualizar_biblioteca()
 }
 
 Usuario <|-- Admin
@@ -44,6 +45,7 @@ class Usuario{
     asignar_carrera()
     asignar_nombre()
     asignar_documento()
+    asignar_cargo()
     entregar_cargo()
     entregar_sede()
     entregar_carrera()
@@ -62,7 +64,7 @@ SistemaBibliotecas "1" *-- "n" Biblioteca:contiene
 class BuscadorLibros{
     librosEncontrados
     por_autor(Biblioteca, autor)
-    por_libro(Biblioteca, nombre)
+    por_nombre(Biblioteca, nombre)
     por_biblioteca(Biblioteca)
     limpiar_librosEncontrados()
     entregar_librosEncontrados()

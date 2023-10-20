@@ -5,7 +5,7 @@ class Usuario:
         self.carrera = ""
         self.nombre= ""
         self.documento = -1
-        
+
     def asignar_sede(self, sede):
         self.sede=sede
     def asignar_carrera(self,carrera):
@@ -14,6 +14,8 @@ class Usuario:
         self.nombre=nombre
     def asignar_documento(self,documento):
         self.documento=documento
+    def asignar_cargo(self,cargo):
+        self.cargo=cargo
 
     def entregar_sede(self):
         return self.sede

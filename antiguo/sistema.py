@@ -165,5 +165,3 @@ class Sistema():
         for i in range(len(self.bibliotecas)):
             self.bibliotecas[i].libros=[]
             self.bibliotecas[i].agregar_libros()
-            
-        
