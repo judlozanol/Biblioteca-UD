@@ -33,3 +33,8 @@ class Libro:
             self.prestado=False
         else:
             self.prestado=True
+    
+    def mostrar_info(self):
+        print("\tNombre: "+ self.nombre)
+        print("\tAutor: "+ self.autor)
+        print("\tBiblioteca: "+ self.biblioteca)

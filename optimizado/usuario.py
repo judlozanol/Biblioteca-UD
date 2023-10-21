@@ -48,3 +48,9 @@ class Usuario:
     
     def llenar_usuario(self):
         pass
+
+    def mostrar_info(self):
+        print("\tNombre: "+self.nombre)
+        print("\tCargo: "+ self.cargo)
+        print("\tSede: "+ self.sede)
+        print("\tCarrera: "+ self.carrera)

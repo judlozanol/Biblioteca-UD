@@ -21,6 +21,7 @@ class Libro{
     entregar_estado()
     entregar_poseedor()
     cambiar_estado()
+    mostrar_info()
 }
 
 class Biblioteca{
@@ -56,6 +57,7 @@ class Usuario{
     leer_nombre()
     leer_documento()
     llenar_usuario()
+    mostrar_info()
 }
 
 Biblioteca "1" *-- "1" BuscadorLibros:contiene
@@ -71,7 +73,8 @@ class BuscadorLibros{
 }
 
 class SistemaBibliotecas{
+    Librerias
+    Usuario
     iniciar_sesion()
-    
 }
 @enduml
