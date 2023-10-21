@@ -9,14 +9,14 @@ class BuscadorLibros:
     def por_autor(self,autor):
         self.limpiar_librosEncontrados()
         for libro in self.listaLibros:
-            if libro.entregar_autor()==autor:
+            if libro.entregar_autor().upper()==autor.upper():
                 self.librosEncontrados.append(libro)
         return self.librosEncontrados
     def por_nombre(self,nombre):
         self.limpiar_librosEncontrados()
         for libro in self.listaLibros:
-            if libro.entregar_nombre()==nombre:
-                self.librosEncontrados.append(nombre)
+            if libro.entregar_nombre().upper()==nombre.upper():
+                self.librosEncontrados.append(libro)
         return self.librosEncontrados
     def por_biblioteca(self):
         self.limpiar_librosEncontrados()
