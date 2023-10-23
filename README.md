@@ -4,7 +4,7 @@
 
 - Diagrama de clases:
 
-![Diagrama de](Biblioteca-UD-Optimizacion-refactory-\diagramas\clases\clases.png)
+![Diagrama de clases](diagramas\clases\clases.png)
 
 ## Metodos de refactory usados:
 Extraer métodos:
