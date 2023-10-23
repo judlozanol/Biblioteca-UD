@@ -87,7 +87,7 @@ class Sistema():
                                 contenido= linea.split("/")
                                 if contenido[0]==libro.entregar_nombre() and len(contenido)==2 and prestamoCompletado==False:
                                     prestamoCompletado=True
-                                    linea=linea+"/"+self.usuario.entregar_nombre()+"/"+self.usuario.entregar_documento()+"/"+self.usuario.entregar_cargo()+"/"+self.usuario.entregar_sede()+"/"+self.usuario.entregar_carrera()
+                                    linea=linea+"/"+self.usuario.entregar_nombre()+"/"+str(self.usuario.entregar_documento())+"/"+self.usuario.entregar_cargo()+"/"+self.usuario.entregar_sede()+"/"+self.usuario.entregar_carrera()
                                 archivo.write(linea+"\n")
                             archivo.close()
             print("Prestamo Exitoso!")
@@ -160,4 +160,4 @@ class Sistema():
     def actualizar_bilioteca(self):
         for biblioteca in self.bibliotecas:
             biblioteca.libros=[]
-            biblioteca.agregar_libros()
+            biblioteca.leer_libros()
