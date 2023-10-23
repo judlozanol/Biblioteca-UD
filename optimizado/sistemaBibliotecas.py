@@ -9,7 +9,7 @@ class Sistema():
     
     def iniciar_sesion(self):
         for index,usuario in enumerate(self.usuarios):
-            print("\t("+str(index+1)+") "+ usuario.cargo)
+            print("\t("+str(index+1)+") "+ usuario.entregar_cargo())
         indice=-1
         while indice<1 or indice>len(self.usuarios):
             try:
@@ -85,13 +85,79 @@ class Sistema():
                             for linea in texto:
                                 linea=linea.rstrip("\n")
                                 contenido= linea.split("/")
-                                if contenido[0]==libro.nombre and len(contenido)==2 and prestamoCompletado==False:
+                                if contenido[0]==libro.entregar_nombre() and len(contenido)==2 and prestamoCompletado==False:
                                     prestamoCompletado=True
-                                    linea=linea+"/"+self.usuario.nombre+"/"+self.usuario.documento+"/"+self.usuario.cargo+"/"+self.usuario.sede+"/"+self.usuario.carrera
+                                    linea=linea+"/"+self.usuario.entregar_nombre()+"/"+self.usuario.entregar_documento()+"/"+self.usuario.entregar_cargo()+"/"+self.usuario.entregar_sede()+"/"+self.usuario.entregar_carrera()
                                 archivo.write(linea+"\n")
                             archivo.close()
             print("Prestamo Exitoso!")
             input("Presione enter para continuear...")
-
-if __name__=="__main__":
-    s=Sistema()
+            
+    def libros_prestados(self):
+        libros_prestados=[]
+        for biblioteca in self.bibliotecas:
+            for libro in biblioteca.libros:
+                if libro.prestado and libro.poseedor.entregar_documento()==self.usuario.entregar_documento():
+                        libros_prestados.append(libro)
+        return libros_prestados
+    
+    def consultar_libros_prestados(self):
+        libros_prestados=self.libros_prestados()
+        if len(libros_prestados)==0:
+            print("Ningún libro que devolver ;)")
+        else: 
+            print("Libros prestados a "+self.usuario.nombre)
+            for index,libro in enumerate(libros_prestados):
+                print("("+str(index+1)+")")
+                libro.mostrar_info()
+        input("Presione enter para continuear...")
+    
+    def escoger_libro_prestado(self):
+        libros_prestados=self.libros_prestados()
+        if len(libros_prestados)==0:
+            print("Ningún libro que devolver ;)")
+            input("Presione enter para continuear...")
+            return False
+        else:
+            for index,libro in enumerate(libros_prestados):
+                print("("+str(index+1)+")")
+                libro.mostrar_info()
+            print("\n("+str(index+2)+") Salir")
+            
+            indice=-1
+            while(indice>len(libros_prestados)+1 or indice<1):
+                try:
+                    indice=int(input("Ingrese el número del libro que desea devolver:"))
+                except ValueError:
+                    pass
+                
+            if indice==len(libros_prestados)+1:
+                return False
+            else: 
+                return libros_prestados[indice-1]
+            
+    def devolver_libro(self):
+        libro=self.escoger_libro_prestado()
+        if libro:
+            devolucionCompletada=False
+            for biblioteca in self.bibliotecas:
+                if biblioteca.nombre==libro.entregar_biblioteca():
+                    archivo=open(biblioteca.txt)
+                    texto=archivo.readlines()
+                    archivo.close()
+                    archivo=open(biblioteca.txt,"w")
+                    for linea in texto:
+                        linea=linea.rstrip("\n")
+                        contenido= linea.split("/")
+                        if contenido[0]==libro.entregar_nombre() and len(contenido)==7 and int(contenido[3])==self.usuario.entregar_documento() and devolucionCompletada==False:
+                            devolucionCompletada=True
+                            linea=libro.entregar_nombre()+"/"+libro.entregar_autor()
+                        archivo.write(linea+"\n")
+                    archivo.close()
+            print("Devolución Exitosa!")
+            input("Presione enter para continuear...")
+            
+    def actualizar_bilioteca(self):
+        for biblioteca in self.bibliotecas:
+            biblioteca.libros=[]
+            biblioteca.agregar_libros()
