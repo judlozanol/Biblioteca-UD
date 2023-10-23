@@ -5,7 +5,7 @@
     + Juan Diego Lozano Luna /20231020040.
 
 
-##Metodos de refactory usados:
+## Metodos de refactory usados:
 Extraer métodos:
 
 Esta técnica consiste en dividir un método largo en métodos más pequeños para mejorar la legibilidad y la reutilización del código.
