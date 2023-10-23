@@ -1,9 +1,10 @@
 # Sistema de Bibliotecas UD
-## Colaboradores del Proyecto:
-    + Samuel Casas Cantor / 20231020038.
-    + Luis Felipe Mongui Dimate / 20231020039.
-    + Juan Diego Lozano Luna /20231020040.
 
+## Diagramas:
+
+- Diagrama de clases:
+
+![Diagrama de](Biblioteca-UD-Optimizacion-refactory-\diagramas\clases\clases.png)
 
 ## Metodos de refactory usados:
 Extraer métodos:
@@ -21,3 +22,8 @@ A medida que el proyecto crece, reorganiza las clases y módulos en una jerarqu�
 Eliminar código muerto:
 
 Busca y elimina cualquier código que ya no se utilice en la aplicación.
+
+## Colaboradores del Proyecto:
+    + Samuel Casas Cantor / 20231020038.
+    + Luis Felipe Mongui Dimate / 20231020039.
+    + Juan Diego Lozano Luna /20231020040.
